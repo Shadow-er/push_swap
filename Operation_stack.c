@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 10:25:41 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/14 15:05:11 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/15 06:22:51 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	length(int *s1, int n)
 	}
 	return (i);
 }
-int	*ft_intdup( int *s1, int n)
+int	*ft_intdup(int *s1, int n)
 {
 	int	r;
 	int	i;
@@ -84,6 +84,6 @@ void	fill_all(t_rot **l, char **argv, int size)
 int	is_empty(t_list *l)
 {
 	if (l->top == -1)
-		return (-1);
-	return (0);
+		return (0);
+	return (1);
 }
