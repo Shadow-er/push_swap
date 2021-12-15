@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 10:59:19 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/15 11:14:40 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:00:00 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ int	pb(t_rot **dst, t_rot **src)
 
 	if ((*src)->top == -1)
 		return (0);
-	i = extract_content(src);
-	add_content(dst, i);
+	i = extract_content(dst);
+	add_content(src, i);
 	return (1);
 }
 void temporary(t_rot **p, t_rot **dst);
@@ -217,10 +217,96 @@ int is_sorted(t_rot **dst)
 	}
 	return (1);
 }
-void sort_3(t_rot **dst, t_rot **src)
+void sort_3_part1(t_rot **dst)
 {
 	
+	if ((*dst)->content[0] < (*dst)->content[1] 
+		&& ((*dst)->content[1] < (*dst)->content[2]))
+	{
+		if((*dst)->content[0] < (*dst)->content[2])
+			{
+				sa(dst);
+				rra(dst);
+			}
+	}
+	if((*dst)->content[0] > (*dst)->content[1])
+	{
+		if((*dst)->content[1] < (*dst)->content[2])
+				ra(dst);
+	}
 }
+void sort_3_part2(t_rot **dst)
+{
+	if((*dst)->content[0] > (*dst)->content[1])
+	{
+		if((*dst)->content[1] > (*dst)->content[2])
+			{
+				sa(dst);
+				rra(dst);
+			}
+	}
+	if ((*dst)->content[0] < (*dst)->content[1] 
+		&& ((*dst)->content[1] > (*dst)->content[2]))
+	{
+		if((*dst)->content[1] > (*dst)->content[2])
+				rra(dst);
+	}
+	if ((*dst)->content[0] > (*dst)->content[1] 
+		&& ((*dst)->content[1] < (*dst)->content[2]))
+	{
+				sa(dst);
+	}
+}
+int find_index(t_rot **dst, int a)
+{
+	int	i;
+
+	i = 0;
+	while(i < (*dst)->top)
+	{
+		if((*dst)->content[i] == a)
+			return (i);
+	}
+}
+
+int minimun(t_rot **dst)
+{
+	int	i;
+	int	size;
+	int	min;
+
+	size = ((*dst)->top)/2;
+	min = min_int(dst);
+	i = find_index(dst, min);
+	if(i >= size)
+		return (1);
+	if(i < size)
+		return (0);			
+}
+
+void sort_5(t_rot **dst, t_rot **src)
+{
+	int	i;
+
+	i = 0;
+	while (!is_sorted(dst) || (*dst)->top == 3)
+	{	
+		if (minimum(dst) == 1)
+			rra(dst,src);
+		else
+			ra(dst);
+		if ((*dst)->content[0] == min_int(dst))
+			pa(dst,src);
+	}
+	if (!is_sorted(dst))
+	{
+		sort_3_part1(dst);
+		sort_3_part2(dst);
+		pb(dst,src);
+		pb(dst,src);	
+	}
+}
+
 void	binary_op(t_rot **dst, t_rot **src)
 {
 	int max_b;
