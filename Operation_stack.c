@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 10:25:41 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/15 06:22:51 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/15 10:34:14 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	*ft_intdup(int *s1, int n)
 	return (dst);
 }
 
-void	copy(char *p, char *s)
+void	copy(int *p, int *s)
 {
 	int	j;
 
@@ -59,10 +59,19 @@ void	copy(char *p, char *s)
 			p[j] = s[j];
 			j++;
 		}
-		p[j] = '\0';
 }
-
-void	fill_all(t_rot **l, char **argv, int size)
+void allocate_int(t_rot **l,int argc,char **argv)
+{
+	int	i;
+	
+	(*l)->content = (int *)malloc(sizeof(int) * argc );
+	if((*l)->content == 0)
+		return ;
+	fill(l,argv,argc);
+	
+	
+}
+void	fill_all(t_rot **l, char **argv, int size,int argc)
 {
 	int		c;
 	int		i;
@@ -74,9 +83,9 @@ void	fill_all(t_rot **l, char **argv, int size)
 	init(*l);
 	while (i < size)
 	{
-		copy((*l)->content, argv[i]);
+		(*l)->content[i] = ft_atoi(argv[argc--]);
 		((*l)->top) += 1;
-		((*l)->size) += 1; 
+		((*l)->size) += 1;
 		i++;
 	}	
 }

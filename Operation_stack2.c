@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 10:59:19 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/15 07:01:55 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/15 11:14:40 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,10 @@ int is_sorted(t_rot **dst)
 	}
 	return (1);
 }
-
+void sort_3(t_rot **dst, t_rot **src)
+{
+	
+}
 void	binary_op(t_rot **dst, t_rot **src)
 {
 	int max_b;
@@ -240,9 +243,10 @@ void	binary_op(t_rot **dst, t_rot **src)
 			j++;
 		}
 		i++;
+	
+		while(is_empty(*src) != 0)
+			pa(dst,src);
 	}
-	while(is_empty(*src) != 0)
-		pa(dst,src);
 }
 void	ra(t_rot **dst)
 {
@@ -281,6 +285,7 @@ void richange(t_rot **src,t_rot **original)
 		i++;
 	}
 }
+
 void radix_sort(t_rot **dst, t_rot **src)
 {
 	t_rot	*temp;
