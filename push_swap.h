@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:27:29 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/15 08:27:02 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/16 07:14:56 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 
 void init(t_rot **l);
 int sa(t_rot **l);
-void	copy(char *p, char *s);
 int	*ft_intdup(int *s1, int n);
-int	length(const int *s1, int n);
 int	sa(t_rot **s);
 int	extract_content(t_rot **t);
 void	add_content(t_rot **t, int a);
@@ -42,6 +40,6 @@ int	*ft_intdup(int *s1, int n);
 void	copy(int *p, int *s);
 void allocate_int(t_rot **l,int argc,char **argv);
 void	fill_all(t_rot **l, char **argv, int size);
-int	is_empty(t_list *l);
-
+int	is_empty(t_rot *l);
+int find_index(t_rot **dst, int a);
 #endif

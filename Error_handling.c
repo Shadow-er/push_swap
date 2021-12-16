@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:33:36 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/15 10:34:43 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/16 07:54:01 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int check_integer(char *argv[],int argc)
 		j = 0;
 		while (argv[i][j])
 		{
-			while ((argv[i][j] >= 9 && argv[i][j] <= 13) || argv[i][j] == ' ')
-				j++;
 			if (argv[i][j] == '-' || argv[i][j] == '+')
 				j++;
+			if (argv[i][j] == '-' || argv[i][j] == '+')
+				return (0);
 			while(ft_isdigit(argv[i][j]))
 				j++;
 			if(!ft_isdigit(argv[i][j]))
