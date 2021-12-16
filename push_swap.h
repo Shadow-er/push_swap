@@ -6,12 +6,13 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:27:29 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/16 07:14:56 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/16 11:06:18 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define   PUSH_SWAP_H
+# include <stdlib.h>
 # include "libft/libft.h"
 
 void init(t_rot **l);
@@ -39,7 +40,13 @@ int	length(int *s1, int n);
 int	*ft_intdup(int *s1, int n);
 void	copy(int *p, int *s);
 void allocate_int(t_rot **l,int argc,char **argv);
-void	fill_all(t_rot **l, char **argv, int size);
+void	fill_all(t_rot **l, char **argv, int size, int last);
 int	is_empty(t_rot *l);
 int find_index(t_rot **dst, int a);
+int check_integer(char *argv[],int argc, int i, int j);
+int check_duplicata(char *argv[],int argc);
+int check_scope(char *argv);
+int check_range_integer(char *argv[],int argc);
+int	nbrlen(char *str, char charset);
+int	ft_isset(char str, char Setter);
 #endif

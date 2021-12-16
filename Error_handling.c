@@ -6,31 +6,33 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:33:36 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/16 07:54:01 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/16 11:13:51 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_integer(char *argv[],int argc)
+int check_integer(char *argv[],int argc,int i, int j)
 {
-	int	i;
-	int j;
-
-	i = 0;
 	while (i < argc)
 	{
 		j = 0;
 		while (argv[i][j])
 		{
+			
 			if (argv[i][j] == '-' || argv[i][j] == '+')
 				j++;
 			if (argv[i][j] == '-' || argv[i][j] == '+')
 				return (0);
-			while(ft_isdigit(argv[i][j]))
-				j++;
-			if(!ft_isdigit(argv[i][j]))
+			if (ft_isdigit(argv[i][j]) == 0)
 				return (0);
+			while(ft_isdigit(argv[i][j]) == 1)
+				j++;
+			if(argv[i][j])
+			{
+				if(ft_isdigit(argv[i][j]) == 0)
+					return (0);
+			}
 		}
 		i++;
 	}	
@@ -40,17 +42,20 @@ int check_duplicata(char *argv[],int argc)
 {
 	int i;
 	int j;
+	int k;
+	int	r;
 
-	i = 0;
-		while (i < argc)
+	i = 1;
+	while (i < argc)
 	{
 		j = 0;
-		while (j < argc)
+		while(j < argc)
 		{
-			if (i == j)
-				j++;
-			if(ft_strstr(argv[i],argv[j]) ==1)
-				return (0);
+			if(i != j)
+			{
+				if(ft_strcmp(argv[i],argv[j]) == 0)
+					return (0);
+			}
 			j++;
 		}
 		i++;
