@@ -10,7 +10,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(MAKE) -C ./libft
-	$(CC) $(CFLAGS) $(SRCS) libft/libft.a -o $(NAME) -g -fsanitize=address
+	$(CC) $(CFLAGS) $(SRCS) libft/libft.a -o $(NAME) -g 
 clean : 
 	$(MAKE) clean -C ./libft
 	rm -f ${OBJS} 

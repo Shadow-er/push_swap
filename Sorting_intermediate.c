@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:32 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 15:29:34 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 16:59:21 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,11 @@ void swap(int *a,int *b)
 void ichange(t_rot **dst)
 {
 	t_rot *sorted;
-	//t_rot *finish;
 	int	i;
 	int	j;
 
 	temporary(&sorted,dst);
 	sort(&sorted);
-	//temporary(&finish,dst);
 	i = 0;
 	while(i <= (*dst)->top)
 	{
@@ -83,7 +81,7 @@ void ichange(t_rot **dst)
 		}
 		i++;
 	}
-	//free(finish);
+	free(sorted->content);
 	free(sorted);
 	
 }

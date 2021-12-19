@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:50:21 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 15:33:47 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 16:58:19 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,13 @@ void sort_5(t_rot **dst, t_rot **src)
 void radix_sort(t_rot **dst, t_rot **src)
 {
 	t_rot	*temp;
-	t_rot	*temp2;
 	
 	temporary(&temp,dst);
-	temporary(&temp2,dst);
 	ichange(&temp);
 	binary_op(&temp,src);
-	free((*dst)->content);
-	(*dst)->content = ft_intdup(temp->content,temp->top);
-	(*dst)->top = temp->top;
+	// free((*dst)->content);
+	// (*dst)->content = ft_intdup(temp->content,temp->top);
+	// (*dst)->top = temp->top;
+	free(temp->content);
+	free(temp);
 }
