@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:50:21 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/16 06:57:28 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 12:21:06 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,72 +17,72 @@ int is_sorted(t_rot **dst)
 	int	i;
 
 	i = 0;
-	while(i <= (*dst)->top - 1)
+	while(i < (*dst)->top)
 	{
 		if((*dst)->content[i] > (*dst)->content[i + 1])
 			return (0);
+		i++;
 	}
 	return (1);
 }
-
-void sort_3_part1(t_rot **dst)
+void sort_2(t_rot **dst)
 {
-	
-	if ((*dst)->content[0] < (*dst)->content[1] 
-		&& ((*dst)->content[1] < (*dst)->content[2]))
-	{
-		if((*dst)->content[0] < (*dst)->content[2])
-			{
-				sa(dst);
-				rra(dst);
-			}
-	}
 	if((*dst)->content[0] > (*dst)->content[1])
-	{
-		if((*dst)->content[1] < (*dst)->content[2])
-				ra(dst);
-	}
+		sa(dst);
 }
-void sort_3_part2(t_rot **dst)
+
+void sort_3(t_rot **dst)
 {
-	if((*dst)->content[0] > (*dst)->content[1])
+	if ((*dst)->content[0] < (*dst)->content[1]
+		&& ((*dst)->content[1] > (*dst)->content[2])
+		&& (*dst)->content[0] < (*dst)->content[2])
 	{
-		if((*dst)->content[1] > (*dst)->content[2])
-			{
-				sa(dst);
-				rra(dst);
-			}
+		sa(dst);
+		ra(dst);
 	}
-	if ((*dst)->content[0] < (*dst)->content[1] 
-		&& ((*dst)->content[1] > (*dst)->content[2]))
+	else if ((*dst)->content[0] > (*dst)->content[1]
+		&& ((*dst)->content[1] < (*dst)->content[2])
+		&& (*dst)->content[0] > (*dst)->content[2])
+		ra(dst);
+	else if ((*dst)->content[0] > (*dst)->content[1]
+		&& (*dst)->content[1] > (*dst)->content[2])
 	{
-		if((*dst)->content[1] > (*dst)->content[2])
-				rra(dst);
+		sa(dst);
+		rra(dst);
 	}
-	if ((*dst)->content[0] > (*dst)->content[1] 
-		&& ((*dst)->content[1] < (*dst)->content[2]))
-	{
-				sa(dst);
-	}
+	else if ((*dst)->content[0] > (*dst)->content[1]
+		&& ((*dst)->content[1] < (*dst)->content[2])
+		&& ((*dst)->content[0] < (*dst)->content[2]))
+		sa(dst);
+	else if ((*dst)->content[0] < (*dst)->content[1] 
+		&& ((*dst)->content[1] > (*dst)->content[2])
+		&& (*dst)->content[0] > (*dst)->content[2])
+		rra(dst);
 }
 void sort_5(t_rot **dst, t_rot **src)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (!is_sorted(dst) || (*dst)->top == 3)
+	while ((*dst)->top > 2)
 	{	
+		j = min_int(dst);
 		if (minimum(dst) == 1)
-			rra(dst,src);
+		{ 
+			while ((*dst)->content[0] != j)
+				rra(dst);
+		}
 		else
-			ra(dst);
-		if ((*dst)->content[0] == min_int(dst))
+		{ 
+			while ((*dst)->content[0] != j)
+				ra(dst);
+		}
 			pa(dst,src);
 	}
-	if (!is_sorted(dst))
+	if ((*dst)->top == 2)
 	{
-		sort_3_part1(dst);
-		sort_3_part2(dst);
+		sort_3(dst);
 		pb(dst,src);
 		pb(dst,src);	
 	}
@@ -92,7 +92,6 @@ void radix_sort(t_rot **dst, t_rot **src)
 {
 	t_rot	*temp;
 	t_rot	*temp2;
-	int	i;
 	
 	temporary(&temp,dst);
 	temporary(&temp2,dst);

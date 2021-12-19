@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:32 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/16 07:06:03 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 10:23:56 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void richange(t_rot **src,t_rot **original)
 	}
 }
 
-int minimun(t_rot **dst)
+int minimum(t_rot **dst)
 {
 	int	i;
 	int	size;
@@ -88,6 +88,5 @@ int minimun(t_rot **dst)
 	i = find_index(dst, min);
 	if(i >= size)
 		return (1);
-	if(i < size)
-		return (0);			
+	return (0);			
 }

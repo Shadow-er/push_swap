@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:33:36 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/16 11:13:51 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 08:14:12 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,11 @@ int check_integer(char *argv[],int argc,int i, int j)
 	}	
 	return(1);
 }
+
 int check_duplicata(char *argv[],int argc)
 {
 	int i;
 	int j;
-	int k;
-	int	r;
 
 	i = 1;
 	while (i < argc)
@@ -53,7 +52,7 @@ int check_duplicata(char *argv[],int argc)
 		{
 			if(i != j)
 			{
-				if(ft_strcmp(argv[i],argv[j]) == 0)
+				if(ft_atoi(argv[i]) == ft_atoi(argv[j]))
 					return (0);
 			}
 			j++;

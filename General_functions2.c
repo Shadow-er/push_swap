@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 10:25:41 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/16 11:06:08 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 11:12:06 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int min_int(t_rot **dst)
 
 	i = 0;
 	min = (*dst)->content[0];
-	while (i <= (*dst)->top )
+	while (i < (*dst)->top)
 	{
 		if ((*dst)->content[i] > (*dst)->content[i + 1])
 			min = (*dst)->content[i + 1];

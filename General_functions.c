@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:12:39 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/16 07:13:47 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 10:17:31 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_empty(t_rot *l)
 	return (1);
 }
 
-int	length(int *s1, int n)
+int	length(int n)
 {
 	int	i;
 
@@ -34,18 +34,18 @@ int	length(int *s1, int n)
 void suppress_element(t_rot **src , int a)
 {
 	int	i;
-	t_rot **temp;
+	t_rot *temp;
 
 	i =0;
-	temporary(temp,src);
+	temporary(&temp,src);
 	free(*src);
 	*src =(t_rot *)malloc(sizeof(t_rot));
 	if(!src)
 		return ;
-	while(i <= (*temp)->top)
+	while(i <= (temp)->top)
 	{
-		if ((*temp)->content[i] != a)
-			(*src)->content[i]= (*temp)->content[i];
+		if ((temp)->content[i] != a)
+			(*src)->content[i]= (temp)->content[i];
 		i++;
 	}
 	(*src)->top = (*src)->top - 1;
@@ -61,7 +61,9 @@ int find_index(t_rot **dst, int a)
 	{
 		if((*dst)->content[i] == a)
 			return (i);
+		i++;
 	}
+	return (-1);
 }
 
 int max_int(t_rot **dst)
