@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:27:29 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 10:53:28 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 14:34:12 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	add_content(t_rot **t, int a);
 int	pa(t_rot **dst, t_rot **src);
 int	pb(t_rot **dst, t_rot **src);
 void temporary(t_rot **p, t_rot **dst);
-t_rot *sort(t_rot **dst);
+void	sort(t_rot **dst);
 void ichange(t_rot **dst);
 int max_int(t_rot **dst);
 int min_int(t_rot **dst);

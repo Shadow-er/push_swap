@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 10:25:41 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 11:12:06 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 13:32:17 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void temporary(t_rot **p, t_rot **dst)
 	int i;
 
 	i = 0;
-	init(p);
 	*p = (t_rot *)malloc(sizeof(t_rot));
+	init(p);
 	if(*p == 0)
 		return ;
 	(*p)->content = ft_intdup((*dst)->content,(*dst)->top);
@@ -72,7 +72,7 @@ int min_int(t_rot **dst)
 	min = (*dst)->content[0];
 	while (i < (*dst)->top)
 	{
-		if ((*dst)->content[i] > (*dst)->content[i + 1])
+		if (min > (*dst)->content[i + 1])
 			min = (*dst)->content[i + 1];
 		i++;
 	}

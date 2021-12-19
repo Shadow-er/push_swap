@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:52:38 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 12:12:58 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 14:54:42 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	add_content_b(t_rot **src, int a)
 		j++;
 	}
 	free((*src)->content);
-	(*src)->top = i + 1;
+	(*src)->top = i;
 	(*src)->content = ft_intdup(p, (*src)->top);
 	free(p);
 }

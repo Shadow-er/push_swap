@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:33:36 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 08:14:12 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 16:50:23 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int check_duplicata(char *argv[],int argc)
 	i = 1;
 	while (i < argc)
 	{
-		j = 0;
+		j = 1;
 		while(j < argc)
 		{
 			if(i != j)

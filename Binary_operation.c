@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:49:30 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 08:02:13 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 16:03:13 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int max_bits(t_rot **dst)
 
 	i = 0;
 	max = max_int(dst);
-	while (max / 2)
+	while (max != 0)
 	{
 		i++;
+		max = max/2;
 	}
 	return (i);
 }
@@ -29,28 +30,26 @@ int max_bits(t_rot **dst)
 void	binary_op(t_rot **dst, t_rot **src)
 {
 	int max_b;
-	int temp;
 	int i;
 	int	j;
 	int r;
 
 	max_b = max_bits(dst);
 	i = 0;
-	while(is_sorted(dst) != 1)
+	while(!is_sorted(dst))
 	{
 		j = 0;
-		while(j <= (*dst)->top)
+		while(j <= (*dst)->size)
 		{
-			temp = (*dst)->content[j];
-			r = (temp >> i)&1;
+			r = ((*dst)->content[0] >> i)&1;
 			if( r == 1)
 				ra(dst);
 			else
 				pb(dst,src);
 			j++;
 		}
-		i++;
 		while(is_empty(*src) != 0)
 			pa(dst,src);
+		i++;
 	}
 }

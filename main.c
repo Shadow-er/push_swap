@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 08:15:06 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 12:18:47 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 16:51:05 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,8 @@ int main(int argc, char *argv[])
 			sort_3(&l);
 		else if (argc == 6 || argc == 5)
 			sort_5(&l,&stack2);
-		// while (i < argc - 1)
-		// {
-		// 	printf("%d",l->content[i]);
-		// 	i++;
-		// }
+		else if (argc > 6)
+			radix_sort(&l,&stack2);
 	}
 	return (0);
 }

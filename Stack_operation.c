@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:47:07 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 10:52:58 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 15:37:58 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int	pa(t_rot **dst, t_rot **src)
 {
 	int	i;
 
-	if ((*dst)->top == -1)
+	if ((*src)->top == -1)
 		return (0);
-	i = extract_content(dst);
-	add_content_b(src, i);
+	i = extract_content(src);
+	add_content(dst, i);
 	ft_putstr_fd("pa\n",1);
 	return (1);
 }
@@ -42,10 +42,10 @@ int	pb(t_rot **dst, t_rot **src)
 {
 	int	i;
 
-	if ((*src)->top == -1)
+	if ((*dst)->top == -1)
 		return (0);
-	i = extract_content(src);
-	add_content(dst, i);
+	i = extract_content(dst);
+	add_content_b(src, i);
 	ft_putstr_fd("pb\n",1);
 	return (1);
 }
