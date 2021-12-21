@@ -10,7 +10,11 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(MAKE) -C ./libft
-	$(CC) $(CFLAGS) $(SRCS) libft/libft.a -o $(NAME) -g 
+	$(CC) $(CFLAGS) $(SRCS) libft/libft.a -o $(NAME) 
+push_swap.a : $(OBJS)
+	$(MAKE) -C ./libft
+	cp libft/libft.a $@
+	ar cr $@ $(OBJS)
 clean : 
 	$(MAKE) clean -C ./libft
 	rm -f ${OBJS} 

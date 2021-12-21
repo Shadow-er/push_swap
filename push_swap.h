@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:27:29 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 14:34:12 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/21 10:31:03 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define   PUSH_SWAP_H
 # include <stdlib.h>
 # include "libft/libft.h"
+# include "Get_next_line/get_next_line.h"
 
 void init(t_rot **l);
 int sa(t_rot **l);
@@ -55,4 +56,6 @@ int minimum(t_rot **dst);
 void sort_3(t_rot **dst);
 void sort_5(t_rot **dst, t_rot **src);
 void	add_content_b(t_rot **src, int a);
+int		empty_matrix(char *argv[],int argc);
+void	check_error(char *argv[], int argc);
 #endif

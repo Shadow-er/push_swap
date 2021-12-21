@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 08:15:06 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 16:57:53 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/21 10:38:48 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,21 @@ void	check_error(char *argv[], int argc)
 		exit(-1);
 	}
 }
+
+void do_it(t_rot *l, int argc, char *argv[], t_rot *stack2)
+{
+	allocate_int(&l, argc - 1 , argv, &stack2);
+		if (is_sorted(&l))
+			exit(0);
+		if (argc == 3)
+			sort_2(&l);
+		else if (argc == 4)
+			sort_3(&l);
+		else if (argc == 6 || argc == 5)
+			sort_5(&l,&stack2);
+		else if (argc > 6)
+			radix_sort(&l,&stack2);
+}
 int main(int argc, char *argv[])
 {
 	
@@ -70,23 +85,10 @@ int main(int argc, char *argv[])
 	if (stack2 == 0)
 		return (0);
 	if(argc >= 3)
-	{
-		allocate_int(&l, argc - 1 , argv, &stack2);
-		if (is_sorted(&l))
-			exit(0);
-		if (argc == 3)
-			sort_2(&l);
-		else if (argc == 4)
-			sort_3(&l);
-		else if (argc == 6 || argc == 5)
-			sort_5(&l,&stack2);
-		else if (argc > 6)
-			radix_sort(&l,&stack2);
-	}
+		do_it(l,argc,argv,stack2);
 	free(l->content);
 	free(l);
 	free(stack2->content);
 	free(stack2);
-	system("leaks push_swap");
 	return (0);
 }

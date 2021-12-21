@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:57:32 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 16:59:21 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/19 18:53:37 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void ichange(t_rot **dst)
 	}
 	free(sorted->content);
 	free(sorted);
-	
 }
 
 void richange(t_rot **src,t_rot **original)
