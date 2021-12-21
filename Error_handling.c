@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:33:36 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 16:50:23 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/21 13:28:39 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int check_integer(char *argv[],int argc,int i, int j)
 		j = 0;
 		while (argv[i][j])
 		{
-			
+			while ((argv[i][j] >= 9 && argv[i][j] <= 13) || argv[i][j] == ' ')
+				j++;
 			if (argv[i][j] == '-' || argv[i][j] == '+')
 				j++;
 			if (argv[i][j] == '-' || argv[i][j] == '+')
@@ -94,4 +95,47 @@ int check_range_integer(char *argv[],int argc)
 		i++;
 	}
 	return (i);
+}
+
+int empty_matrix(char *argv[],int argc)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if(argv[i][0] == '\0')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	check_error(char *argv[], int argc)
+{
+	if (empty_matrix(argv, argc) == 0)
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(-1);
+	}
+	if (argc == 1)
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(-1);
+	}
+	if ((check_integer(argv, argc, 1,0) == 0))
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(-1);
+	}
+	if ((check_duplicata(argv, argc)) == 0)
+	{
+		ft_putstr_fd("Error\n",2);
+		exit(-1);
+	}
+	if ((check_range_integer(argv, argc) == 0))
+	{
+		ft_putstr_fd("Error\n",2);
+		exit(-1);
+	}
 }

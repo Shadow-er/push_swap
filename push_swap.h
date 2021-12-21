@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:27:29 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/21 10:31:03 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/21 13:23:04 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ void sort_5(t_rot **dst, t_rot **src);
 void	add_content_b(t_rot **src, int a);
 int		empty_matrix(char *argv[],int argc);
 void	check_error(char *argv[], int argc);
+int empty_matrix(char *argv[],int argc);
 #endif
