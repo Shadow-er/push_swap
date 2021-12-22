@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:50:21 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 16:58:19 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 10:47:56 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,20 @@ int is_sorted(t_rot **dst)
 
 	i = 0;
 	while(i < (*dst)->top)
+	{
+		if((*dst)->content[i] > (*dst)->content[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int is_sorted_half(t_rot **dst)
+{
+	int	i;
+
+	i = 0;
+	while(i < ((*dst)->size)/2)
 	{
 		if((*dst)->content[i] > (*dst)->content[i + 1])
 			return (0);
@@ -95,9 +109,6 @@ void radix_sort(t_rot **dst, t_rot **src)
 	temporary(&temp,dst);
 	ichange(&temp);
 	binary_op(&temp,src);
-	// free((*dst)->content);
-	// (*dst)->content = ft_intdup(temp->content,temp->top);
-	// (*dst)->top = temp->top;
 	free(temp->content);
 	free(temp);
 }

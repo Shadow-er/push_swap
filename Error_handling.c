@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:33:36 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/21 13:28:39 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 11:46:10 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,31 +111,3 @@ int empty_matrix(char *argv[],int argc)
 	return (1);
 }
 
-void	check_error(char *argv[], int argc)
-{
-	if (empty_matrix(argv, argc) == 0)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(-1);
-	}
-	if (argc == 1)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(-1);
-	}
-	if ((check_integer(argv, argc, 1,0) == 0))
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(-1);
-	}
-	if ((check_duplicata(argv, argc)) == 0)
-	{
-		ft_putstr_fd("Error\n",2);
-		exit(-1);
-	}
-	if ((check_range_integer(argv, argc) == 0))
-	{
-		ft_putstr_fd("Error\n",2);
-		exit(-1);
-	}
-}

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Stack_operation.c                                  :+:      :+:    :+:   */
+/*   bonus_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 06:47:07 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/22 11:46:55 by mlakhssa         ###   ########.fr       */
+/*   Created: 2021/12/22 11:48:22 by mlakhssa          #+#    #+#             */
+/*   Updated: 2021/12/22 11:48:35 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include"push_swap.h"
 
-int	sa(t_rot **s)
+int	sa_n(t_rot **s)
 {
 	int	i;
 	int	temp;
@@ -23,26 +23,9 @@ int	sa(t_rot **s)
 	(*s)->content[0] = (*s)->content[1];
 	(*s)->content[1] = temp;
 	i = 1;
-	ft_putstr_fd("sa\n",1);
 	return (i);
 }
-int	sb(t_rot **s)
-{
-	int	i;
-	int	temp;
-
-	if ((*s)->top < 1)
-		return (0);
-	temp = (*s)->content[0];
-	(*s)->content[0] = (*s)->content[1];
-	(*s)->content[1] = temp;
-	i = 1;
-	ft_putstr_fd("sb\n",1);
-	return (i);
-}
-
-
-int	pa(t_rot **dst, t_rot **src)
+int	pa_n(t_rot **dst, t_rot **src)
 {
 	int	i;
 
@@ -50,11 +33,10 @@ int	pa(t_rot **dst, t_rot **src)
 		return (0);
 	i = extract_content(src);
 	add_content(dst, i);
-	ft_putstr_fd("pa\n",1);
 	return (1);
 }
 
-int	pb(t_rot **dst, t_rot **src)
+int	pb_n(t_rot **dst, t_rot **src)
 {
 	int	i;
 
@@ -62,10 +44,9 @@ int	pb(t_rot **dst, t_rot **src)
 		return (0);
 	i = extract_content(dst);
 	add_content_b(src, i);
-	ft_putstr_fd("pb\n",1);
 	return (1);
 }
-void	ra(t_rot **dst)
+void	ra_n(t_rot **dst)
 {
 	int	i;
 	int	save;
@@ -82,5 +63,22 @@ void	ra(t_rot **dst)
 			(*dst)->content[i] = temp;
 		i++;
 	}
-	ft_putstr_fd("ra\n",1);
+}
+void	rra_n(t_rot **dst)
+{
+	int	i;
+	int	temp;
+
+	i = (*dst)->top;
+	temp = (*dst)->content[(*dst)->top];
+	while ( i >= 0)
+	{
+		if (i != 0)
+		{
+			(*dst)->content[i] = (*dst)->content[i - 1];
+		}
+		else if (i == 0)
+			(*dst)->content[0] = temp;
+		i--;
+	}
 }

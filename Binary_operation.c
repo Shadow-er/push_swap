@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:49:30 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 16:03:13 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 11:03:01 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ void	binary_op(t_rot **dst, t_rot **src)
 	while(!is_sorted(dst))
 	{
 		j = 0;
-		while(j <= (*dst)->size)
+		while(j <= ((*dst)->size))
 		{
 			r = ((*dst)->content[0] >> i)&1;
 			if( r == 1)
+			{	
 				ra(dst);
+			}
 			else
 				pb(dst,src);
 			j++;
