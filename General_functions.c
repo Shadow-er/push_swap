@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 07:12:39 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 10:17:31 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:22:43 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,52 +24,52 @@ int	length(int n)
 	int	i;
 
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
 		i++;
 	}
 	return (i);
 }
 
-void suppress_element(t_rot **src , int a)
+void	suppress_element(t_rot **src, int a)
 {
-	int	i;
-	t_rot *temp;
+	int		i;
+	t_rot	*temp;
 
-	i =0;
-	temporary(&temp,src);
+	i = 0;
+	temporary(&temp, src);
 	free(*src);
-	*src =(t_rot *)malloc(sizeof(t_rot));
-	if(!src)
+	*src = (t_rot *)malloc(sizeof(t_rot));
+	if (!src)
 		return ;
-	while(i <= (temp)->top)
+	while (i <= (temp)->top)
 	{
 		if ((temp)->content[i] != a)
-			(*src)->content[i]= (temp)->content[i];
+			(*src)->content[i] = (temp)->content[i];
 		i++;
 	}
 	(*src)->top = (*src)->top - 1;
 	free(temp);
 }
 
-int find_index(t_rot **dst, int a)
+int	find_index(t_rot **dst, int a)
 {
 	int	i;
 
 	i = 0;
-	while(i <= (*dst)->top)
+	while (i <= (*dst)->top)
 	{
-		if((*dst)->content[i] == a)
+		if ((*dst)->content[i] == a)
 			return (i);
 		i++;
 	}
 	return (-1);
 }
 
-int max_int(t_rot **dst)
+int	max_int(t_rot **dst)
 {
 	int	i;
-	int max;
+	int	max;
 
 	i = 0;
 	max = (*dst)->content[0];

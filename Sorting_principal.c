@@ -6,46 +6,33 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:50:21 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/22 10:47:56 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:45:40 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_sorted(t_rot **dst)
+int	is_sorted(t_rot **dst)
 {
 	int	i;
 
 	i = 0;
-	while(i < (*dst)->top)
+	while (i < (*dst)->top)
 	{
-		if((*dst)->content[i] > (*dst)->content[i + 1])
+		if ((*dst)->content[i] > (*dst)->content[i + 1])
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int is_sorted_half(t_rot **dst)
+void	sort_2(t_rot **dst)
 {
-	int	i;
-
-	i = 0;
-	while(i < ((*dst)->size)/2)
-	{
-		if((*dst)->content[i] > (*dst)->content[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-void sort_2(t_rot **dst)
-{
-	if((*dst)->content[0] > (*dst)->content[1])
+	if ((*dst)->content[0] > (*dst)->content[1])
 		sa(dst);
 }
 
-void sort_3(t_rot **dst)
+void	sort_3(t_rot **dst)
 {
 	if ((*dst)->content[0] < (*dst)->content[1]
 		&& ((*dst)->content[1] > (*dst)->content[2])
@@ -68,47 +55,48 @@ void sort_3(t_rot **dst)
 		&& ((*dst)->content[1] < (*dst)->content[2])
 		&& ((*dst)->content[0] < (*dst)->content[2]))
 		sa(dst);
-	else if ((*dst)->content[0] < (*dst)->content[1] 
+	else if ((*dst)->content[0] < (*dst)->content[1]
 		&& ((*dst)->content[1] > (*dst)->content[2])
 		&& (*dst)->content[0] > (*dst)->content[2])
 		rra(dst);
 }
-void sort_5(t_rot **dst, t_rot **src)
+
+void	sort_5(t_rot **dst, t_rot **src)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	while ((*dst)->top > 2)
-	{	
+	{
 		j = min_int(dst);
 		if (minimum(dst) == 1)
-		{ 
+		{
 			while ((*dst)->content[0] != j)
 				rra(dst);
 		}
 		else
-		{ 
+		{
 			while ((*dst)->content[0] != j)
 				ra(dst);
 		}
-			pb(dst,src);
+		pb(dst, src);
 	}
 	if ((*dst)->top == 2)
 	{
 		sort_3(dst);
-		pa(dst,src);
-		pa(dst,src);	
+		pa(dst, src);
+		pa(dst, src);
 	}
 }
 
-void radix_sort(t_rot **dst, t_rot **src)
+void	radix_sort(t_rot **dst, t_rot **src)
 {
 	t_rot	*temp;
-	
-	temporary(&temp,dst);
+
+	temporary(&temp, dst);
 	ichange(&temp);
-	binary_op(&temp,src);
+	binary_op(&temp, src);
 	free(temp->content);
 	free(temp);
 }

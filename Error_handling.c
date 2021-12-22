@@ -6,13 +6,13 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:33:36 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/22 11:46:10 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:44:32 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_integer(char *argv[],int argc,int i, int j)
+int	check_integer(char *argv[], int argc, int i, int j)
 {
 	while (i < argc)
 	{
@@ -27,43 +27,43 @@ int check_integer(char *argv[],int argc,int i, int j)
 				return (0);
 			if (ft_isdigit(argv[i][j]) == 0)
 				return (0);
-			while(ft_isdigit(argv[i][j]) == 1)
+			while (ft_isdigit(argv[i][j]) == 1)
 				j++;
-			if(argv[i][j])
+			if (argv[i][j])
 			{
-				if(ft_isdigit(argv[i][j]) == 0)
+				if (ft_isdigit(argv[i][j]) == 0)
 					return (0);
 			}
 		}
 		i++;
 	}	
-	return(1);
+	return (1);
 }
 
-int check_duplicata(char *argv[],int argc)
+int	check_duplicata(char *argv[], int argc)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < argc)
 	{
 		j = 1;
-		while(j < argc)
+		while (j < argc)
 		{
-			if(i != j)
+			if (i != j)
 			{
-				if(ft_atoi(argv[i]) == ft_atoi(argv[j]))
+				if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 					return (0);
 			}
 			j++;
 		}
 		i++;
 	}	
-	return(1);
+	return (1);
 }
 
-int check_scope(char *argv)
+int	check_scope(char *argv)
 {
 	unsigned long long	re;
 	int					j;
@@ -83,31 +83,31 @@ int check_scope(char *argv)
 	}
 	return (1);
 }
-int check_range_integer(char *argv[],int argc)
+
+int	check_range_integer(char *argv[], int argc)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (i < argc)
 	{
-		if(check_scope(argv[i]) == -1)
+		if (check_scope(argv[i]) == -1)
 			return (0);
 		i++;
 	}
 	return (i);
 }
 
-int empty_matrix(char *argv[],int argc)
+int	empty_matrix(char *argv[], int argc)
 {
 	int	i;
 
 	i = 1;
 	while (i < argc)
 	{
-		if(argv[i][0] == '\0')
+		if (argv[i][0] == '\0')
 			return (0);
 		i++;
 	}
 	return (1);
 }
-

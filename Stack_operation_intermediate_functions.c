@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:52:38 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 14:54:42 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:41:06 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	extract_content(t_rot **t)
 
 	j = (*t)->content[0];
 	p = (int *)malloc(sizeof(int) * ((*t)->top));
-	if(p == 0)
+	if (p == 0)
 		return (0);
 	i = 0;
 	while (i < ((*t)->top))
@@ -74,6 +74,7 @@ void	add_content(t_rot **t, int a)
 	(*t)->content = ft_intdup(p, (*t)->top);
 	free(p);
 }
+
 void	add_content_b(t_rot **src, int a)
 {
 	int	i;

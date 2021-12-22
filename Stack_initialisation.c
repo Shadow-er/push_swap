@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:54:23 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 11:08:29 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:40:06 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	init(t_rot **l)
 {	
-	//*l = NULL;
 	(*l)->top = -1;
 	(*l)->size = 0;
 }
@@ -39,14 +38,14 @@ void	fill_all(t_rot **l, char **argv, int size)
 	}	
 }
 
-void allocate_int(t_rot **l,int argc,char **argv,t_rot **l2)
+void	allocate_int(t_rot **l, int argc, char **argv, t_rot **l2)
 {
 	(*l)->content = (int *)malloc(sizeof(int) * argc);
-	if((*l)->content == 0)
+	if ((*l)->content == 0)
 		return ;
-	fill_all(l,argv,argc);
+	fill_all(l, argv, argc);
 	(*l2)->content = (int *)malloc(sizeof(int) * argc);
-	if((*l2)->content == 0)
+	if ((*l2)->content == 0)
 		return ;
 	(*l2)->size = argc;
 	(*l2)->top = -1;

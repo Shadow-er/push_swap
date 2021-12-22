@@ -6,35 +6,24 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 10:25:41 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/19 13:32:17 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:28:47 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	copy(int *p, int *s)
+void	temporary(t_rot **p, t_rot **dst)
 {
-	int	j;
-
-	j = 0;
-	while (s[j])
-		{
-			p[j] = s[j];
-			j++;
-		}
-}
-void temporary(t_rot **p, t_rot **dst)
-{
-	int i;
+	int	i;
 
 	i = 0;
 	*p = (t_rot *)malloc(sizeof(t_rot));
 	init(p);
-	if(*p == 0)
+	if (*p == 0)
 		return ;
-	(*p)->content = ft_intdup((*dst)->content,(*dst)->top);
+	(*p)->content = ft_intdup((*dst)->content, (*dst)->top);
 	(*p)->top = (*dst)->top;
-	(*p)->size = (*p)->top; 
+	(*p)->size = (*p)->top;
 }
 
 int	ft_isset(char str, char Setter)
@@ -63,10 +52,10 @@ int	nbrlen(char *str, char charset)
 	return (l);
 }
 
-int min_int(t_rot **dst)
+int	min_int(t_rot **dst)
 {
 	int	i;
-	int min;
+	int	min;
 
 	i = 0;
 	min = (*dst)->content[0];

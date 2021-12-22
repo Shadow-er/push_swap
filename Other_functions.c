@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 11:46:34 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/22 11:47:01 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:30:46 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,24 @@ void	check_error(char *argv[], int argc)
 		ft_putstr_fd("Error\n", 2);
 		exit(-1);
 	}
-	if ((check_integer(argv, argc, 1,0) == 0))
+	if ((check_integer(argv, argc, 1, 0) == 0))
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(-1);
 	}
 	if ((check_duplicata(argv, argc)) == 0)
 	{
-		ft_putstr_fd("Error\n",2);
+		ft_putstr_fd("Error\n", 2);
 		exit(-1);
 	}
 	if ((check_range_integer(argv, argc) == 0))
 	{
-		ft_putstr_fd("Error\n",2);
+		ft_putstr_fd("Error\n", 2);
 		exit(-1);
 	}
 }
 
-void ss(t_rot **s,t_rot **b)
+void	ss(t_rot **s, t_rot **b)
 {	
 	sa(s);
 	sb(b);

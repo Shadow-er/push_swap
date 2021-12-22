@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 11:48:22 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/22 11:48:35 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:46:17 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	sa_n(t_rot **s)
 	i = 1;
 	return (i);
 }
+
 int	pa_n(t_rot **dst, t_rot **src)
 {
 	int	i;
@@ -46,11 +47,12 @@ int	pb_n(t_rot **dst, t_rot **src)
 	add_content_b(src, i);
 	return (1);
 }
+
 void	ra_n(t_rot **dst)
 {
 	int	i;
 	int	save;
-	int temp;
+	int	temp;
 
 	save = (*dst)->top;
 	i = 0;
@@ -59,11 +61,12 @@ void	ra_n(t_rot **dst)
 	{
 		if (i != (*dst)->top)
 			(*dst)->content[i] = (*dst)->content[i + 1];
-		else if(i == (*dst)->top)
+		else if (i == (*dst)->top)
 			(*dst)->content[i] = temp;
 		i++;
 	}
 }
+
 void	rra_n(t_rot **dst)
 {
 	int	i;
@@ -71,7 +74,7 @@ void	rra_n(t_rot **dst)
 
 	i = (*dst)->top;
 	temp = (*dst)->content[(*dst)->top];
-	while ( i >= 0)
+	while (i >= 0)
 	{
 		if (i != 0)
 		{

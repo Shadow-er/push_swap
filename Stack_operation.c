@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 06:47:07 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/22 11:46:55 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/22 13:45:57 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ int	sa(t_rot **s)
 	(*s)->content[0] = (*s)->content[1];
 	(*s)->content[1] = temp;
 	i = 1;
-	ft_putstr_fd("sa\n",1);
+	ft_putstr_fd("sa\n", 1);
 	return (i);
 }
+
 int	sb(t_rot **s)
 {
 	int	i;
@@ -37,10 +38,9 @@ int	sb(t_rot **s)
 	(*s)->content[0] = (*s)->content[1];
 	(*s)->content[1] = temp;
 	i = 1;
-	ft_putstr_fd("sb\n",1);
+	ft_putstr_fd("sb\n", 1);
 	return (i);
 }
-
 
 int	pa(t_rot **dst, t_rot **src)
 {
@@ -50,7 +50,7 @@ int	pa(t_rot **dst, t_rot **src)
 		return (0);
 	i = extract_content(src);
 	add_content(dst, i);
-	ft_putstr_fd("pa\n",1);
+	ft_putstr_fd("pa\n", 1);
 	return (1);
 }
 
@@ -62,14 +62,15 @@ int	pb(t_rot **dst, t_rot **src)
 		return (0);
 	i = extract_content(dst);
 	add_content_b(src, i);
-	ft_putstr_fd("pb\n",1);
+	ft_putstr_fd("pb\n", 1);
 	return (1);
 }
+
 void	ra(t_rot **dst)
 {
 	int	i;
 	int	save;
-	int temp;
+	int	temp;
 
 	save = (*dst)->top;
 	i = 0;
@@ -78,9 +79,9 @@ void	ra(t_rot **dst)
 	{
 		if (i != (*dst)->top)
 			(*dst)->content[i] = (*dst)->content[i + 1];
-		else if(i == (*dst)->top)
+		else if (i == (*dst)->top)
 			(*dst)->content[i] = temp;
 		i++;
 	}
-	ft_putstr_fd("ra\n",1);
+	ft_putstr_fd("ra\n", 1);
 }
