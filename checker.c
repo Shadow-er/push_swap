@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 13:16:53 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/22 13:18:21 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/24 16:02:43 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ void	go_check(t_rot **l, t_rot **r, char *s)
 	if (ft_strcm(s, "rb\n") == 0)
 		rb_n(l);
 	if (ft_strcm(s, "rr\n") == 0)
-		rr_n(l);
+		rr_n(l, r);
 	if (ft_strcm(s, "rra\n") == 0)
 		rra_n(l);
 	if (ft_strcm(s, "rrb\n") == 0)
 		rrb_n(l);
 	if (ft_strcm(s, "rrr\n") == 0)
-		rrr_n(l);
+		rrr_n(l, r);
 	if (ft_strcm(s, "pa\n") == 0)
 		pa_n(l, r);
 	if (ft_strcm(s, "pb\n") == 0)

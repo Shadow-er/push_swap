@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:27:29 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/22 13:33:05 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/24 16:08:40 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,15 @@ void	sort_3(t_rot **dst);
 void	add_content_b(t_rot **src, int a);
 void	check_error(char *argv[], int argc);
 int		empty_matrix(char *argv[], int argc);
-int		empty_matrix(char *argv[], int argc);
 int		is_sorted_half(t_rot **dst);
-void	binary_op_v2(t_rot **dst, t_rot **src);
+int		sa_n(t_rot **l);
+int		sb_n(t_rot **s);
+void	rra_n(t_rot **dst);
+int		pa_n(t_rot **dst, t_rot **src);
+int		pb_n(t_rot **dst, t_rot **src);
+void	rrr_n(t_rot **dst, t_rot **src);
+void	rb_n(t_rot **dst);
+void	rr_n(t_rot **dst, t_rot **src);
+void	rrb_n(t_rot **dst);
+void	ra_n(t_rot **dst);
 #endif

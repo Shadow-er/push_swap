@@ -6,7 +6,7 @@
 /*   By: mlakhssa <mlakhssa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 08:15:06 by mlakhssa          #+#    #+#             */
-/*   Updated: 2021/12/22 13:30:20 by mlakhssa         ###   ########.fr       */
+/*   Updated: 2021/12/24 15:47:54 by mlakhssa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,12 @@ int	main(int argc, char *argv[])
 	if (stack2 == 0)
 		return (0);
 	if (argc >= 3)
+	{
 		do_it(l, argc, argv, stack2);
-	free(l->content);
-	free(l);
-	free(stack2->content);
-	free(stack2);
+		free(l->content);
+		free(l);
+		free(stack2->content);
+		free(stack2);
+	}
 	return (0);
 }
